@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Survey Form</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Survey Form</h2>
+        <form action="#" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation">
+            </div>
+
+            <div class="form-group">
+                <label for="how-heard">How did you hear about us?</label>
+                <select id="how-heard" name="how-heard">
+                    <option value="Word of mouth">Word of mouth</option>
+                    <option value="Social media">Social media</option>
+                    <option value="Online search">Online search</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="interests">Interests or Needs:</label>
+                <textarea id="interests" name="interests" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>How often do you use our products/services?</label>
+                <input type="radio" id="daily" name="usage-frequency" value="Daily">
+                <label for="daily">Daily</label>
+                <input type="radio" id="weekly" name="usage-frequency" value="Weekly">
+                <label for="weekly">Weekly</label>
+                <input type="radio" id="monthly" name="usage-frequency" value="Monthly">
+                <label for="monthly">Monthly</label>
+                <input type="radio" id="rarely" name="usage-frequency" value="Rarely">
+                <label for="rarely">Rarely</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Email validation
+            var emailInput = document.getElementById("email");
+            var emailValue = emailInput.value;
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            
+            if (!emailRegex.test(emailValue)) {
+                alert("Please enter a valid email address.");
+                emailInput.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
